@@ -1,0 +1,127 @@
+/* Reset & General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: white;
+    }
+    .card {
+        background-color: #1e1e1e;
+        color: white;
+        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* Center content */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    transition: background-color 0.3s ease;
+}
+
+/* Card container */
+.card {
+    width: 320px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+/* Hover Effects */
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Card Image */
+.card-image {
+    width: 100%;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Card Content */
+.card-content {
+    padding: 15px;
+}
+
+/* Description (hidden initially) */
+.description {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+/* Show description on hover */
+.card:hover .description {
+    opacity: 1;
+    max-height: 100px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .card {
+        width: 90%;
+    }
+}
+
+
+
+
+/* Dark Mode */
+#dark-mode-toggle {
+    display: none;
+}
+
+#dark-mode-toggle:checked ~ .card {
+    background: #222;
+    color: white;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+#dark-mode-toggle:checked ~ body {
+    background: #111;
+    color: white;
+}
+
+/* Dark Mode Button */
+.toggle-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    background: #ddd;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+#dark-mode-toggle:checked + .toggle-button {
+    background: #444;
+    color: white;
+    content: "☀️";
+}
